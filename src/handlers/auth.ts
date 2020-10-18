@@ -3,17 +3,17 @@ import { ParamsBase, QueryBase, RequestBase, ResponseBase } from "../models";
 import { config } from '../config';
 import * as jwt from 'jsonwebtoken';
 
-const requireAuth: express.RequestHandler<ParamsBase, ResponseBase, RequestBase, QueryBase> = (req, res, next) => {
-    if (!req.headers || !req.headers.authorization) {
-        return res.status(401).send({
+const requireAuth: express.RequestHandler<ParamsBase, ResponseBase, RequestBase, QueryBase> = (request, response, next) => {
+    if (!request.headers || !request.headers.authorization) {
+        return response.status(401).send({
             success: false,
             message: 'No authorization headers.'
         });
     }
 
-    const tokenBearer = req.headers.authorization.split(' ');
+    const tokenBearer = request.headers.authorization.split(' ');
     if (tokenBearer.length != 2) {
-        return res.status(401).send({
+        return response.status(401).send({
             success: false,
             message: 'Malformed token.'
         });
@@ -23,7 +23,7 @@ const requireAuth: express.RequestHandler<ParamsBase, ResponseBase, RequestBase,
 
     return jwt.verify(token, config.dev.jwtSecret!, (err) => {
         if (err) {
-            return res.status(500).send({
+            return response.status(500).send({
                 success: false,
                 message: 'Failed to authenticate.'
             });
