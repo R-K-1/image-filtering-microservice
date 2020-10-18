@@ -1,6 +1,6 @@
 
 // should be used for test purposes only
-const jwtSecretDefault = "zdWIiOiIxMeyJhbGciOiJIUzI1NiJ9.OjoxMTY.oV2Wn7k6Dl9uvrkZY9Tz_TZfo-UeBEIpcO00f3eal2EjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ"
+const jwtSecretDefault = "eyJhbGciOiJIUzI1NiJ9.OjpmZmZmOjEyNy4wLjAuMTE4.DfDDsJ8cWllFgOb2GYdSkcdlSvoz6nl_6N38C89Le24"
 
 export const config = {
     dev: {
