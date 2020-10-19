@@ -7,7 +7,19 @@ It is a Node-Express application which runs a simple script to process images, a
     Initialize a new project: npm i
     run the development server with npm run dev
 
-Deploying your system :
+## Running application locally
+
+Follow this process to run application locally
+
+* Install npm
+
+> run :
+
+```terminal
+   npm install
+   npm run dev
+```
+## Deploying your system
 
 Follow this process to initialize and deploy your image-filtering-service via the awsebcli.
 
@@ -16,8 +28,20 @@ Follow this process to initialize and deploy your image-filtering-service via th
 > For deploying use :
 
 ```terminal
-   npm run build
    eb init
+   npm run build
+ ```
+
+Open .elasticbeanstalk/config.yml and add the following lines at the very bottom of the file
+
+```
+deploy:
+    artifact: ./www/Archive.zip
+```
+
+back to the terminal, run:
+
+```terminal
    eb create
    eb deploy
 ```
